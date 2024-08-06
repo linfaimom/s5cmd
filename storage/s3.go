@@ -802,9 +802,9 @@ func (s *S3) Put(
 	}
 
 	contentType := metadata.ContentType
-	if contentType == "" {
-		contentType = "application/octet-stream"
-	}
+	// if contentType == "" {
+	// 	contentType = "application/octet-stream"
+	// }
 
 	input := &s3manager.UploadInput{
 		Bucket:       aws.String(to.Bucket),

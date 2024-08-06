@@ -702,11 +702,11 @@ func (c Copy) doUpload(ctx context.Context, srcurl *url.URL, dsturl *url.URL, ex
 		EncryptionKeyID:    c.encryptionKeyID,
 	}
 
-	if c.contentType != "" {
-		metadata.ContentType = c.contentType
-	} else {
-		metadata.ContentType = guessContentType(file)
-	}
+	// if c.contentType != "" {
+	// 	metadata.ContentType = c.contentType
+	// } else {
+	// 	metadata.ContentType = guessContentType(file)
+	// }
 
 	reader := newCountingReaderWriter(file, c.progressbar)
 	err = dstClient.Put(ctx, reader, dsturl, metadata, c.concurrency, c.partSize)
